@@ -46,7 +46,7 @@ LogMap works entirely in memory — no database, no external API calls, no telem
 ### Option A — Docker UI (recommended)
 
 ```bash
-git clone https://github.com/your-username/logmap.git
+git clone https://github.com/mekzzz8/logmap.git
 cd logmap
 docker compose up --build
 ```
