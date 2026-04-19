@@ -1,0 +1,64 @@
+EventID=4625
+Date/Time=2024-01-15T10:20:00Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.1.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2024-01-15T10:20:05Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.1.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2024-01-15T10:20:10Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.1.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2024-01-15T10:20:15Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.1.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2024-01-15T10:20:20Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.1.45
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4624
+Date/Time=2024-01-15T10:25:00Z
+Account Name=administrator
+Account Domain=CORP
+Source Network Address=192.168.1.45
+Logon Type=3
+Workstation Name=DC-01
+
+EventID=4672
+Date/Time=2024-01-15T10:25:01Z
+Account Name=administrator
+Account Domain=CORP
+
+EventID=4688
+Date/Time=2024-01-15T10:25:30Z
+Account Name=administrator
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -nop -enc ZQBjAGgAbwAgACIASABlAGwAbABvACIA
+New Process ID=0x1234
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4698
+Date/Time=2024-01-15T10:30:00Z
+Account Name=administrator
+Task Name=\Microsoft\Windows\SideBySide\backdoor_task
