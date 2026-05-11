@@ -1,0 +1,285 @@
+# =============================================================================
+# WannaCry / NotPetya-style — Propagación lateral masiva desde host infectado
+# Fuente: MITRE ATT&CK S0366 (WannaCry), S0368 (NotPetya), NSA Advisory 2017
+# Duración: ~20 minutos desde PATIENT-ZERO (11:00 – 11:20 UTC)
+# Host infectado: WKSTN-ACCT-ZERO (10.10.50.100) — propagación interna /16
+# Patrón grafo: 1 nodo origen → múltiples nodos destino (topología estrella)
+# =============================================================================
+
+EventID=4625
+Date/Time=2025-06-12T11:00:01Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:02Z
+Account Name=Guest
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:03Z
+Account Name=backup_svc
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:04Z
+Account Name=admin
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:05Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-02
+
+EventID=4625
+Date/Time=2025-06-12T11:00:06Z
+Account Name=Guest
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-02
+
+EventID=4625
+Date/Time=2025-06-12T11:00:07Z
+Account Name=backup_svc
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-02
+
+EventID=4625
+Date/Time=2025-06-12T11:00:08Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-OPS-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:09Z
+Account Name=Guest
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-OPS-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:10Z
+Account Name=admin
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-OPS-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:11Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-DEV-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:12Z
+Account Name=backup_svc
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-DEV-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:13Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=SRV-FILE-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:14Z
+Account Name=Guest
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=SRV-FILE-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:15Z
+Account Name=admin
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=SRV-FILE-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:16Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:17Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4625
+Date/Time=2025-06-12T11:00:18Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4624
+Date/Time=2025-06-12T11:02:14Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=10
+Workstation Name=WKSTN-ACCT-01
+
+EventID=4672
+Date/Time=2025-06-12T11:02:28Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Workstation Name=WKSTN-ACCT-01
+
+EventID=7045
+Date/Time=2025-06-12T11:02:55Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Service Name=mssecsvc2.0
+
+EventID=4720
+Date/Time=2025-06-12T11:03:30Z
+Account Name=WNcry@2ol7
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+
+EventID=4624
+Date/Time=2025-06-12T11:04:22Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=10
+Workstation Name=WKSTN-ACCT-02
+
+EventID=4672
+Date/Time=2025-06-12T11:04:35Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Workstation Name=WKSTN-ACCT-02
+
+EventID=7045
+Date/Time=2025-06-12T11:05:01Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Service Name=mssecsvc2.0
+
+EventID=4624
+Date/Time=2025-06-12T11:06:10Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=10
+Workstation Name=WKSTN-OPS-01
+
+EventID=4672
+Date/Time=2025-06-12T11:06:23Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Workstation Name=WKSTN-OPS-01
+
+EventID=7045
+Date/Time=2025-06-12T11:06:49Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Service Name=mssecsvc2.0
+
+EventID=4624
+Date/Time=2025-06-12T11:08:03Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=10
+Workstation Name=WKSTN-DEV-01
+
+EventID=4672
+Date/Time=2025-06-12T11:08:17Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Workstation Name=WKSTN-DEV-01
+
+EventID=7045
+Date/Time=2025-06-12T11:08:44Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Service Name=mssecsvc2.0
+
+EventID=4624
+Date/Time=2025-06-12T11:10:11Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Logon Type=10
+Workstation Name=SRV-FILE-01
+
+EventID=4672
+Date/Time=2025-06-12T11:10:25Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Workstation Name=SRV-FILE-01
+
+EventID=7045
+Date/Time=2025-06-12T11:10:52Z
+Account Name=administrator
+Account Domain=MEDITECH
+Source Network Address=10.10.50.100
+Service Name=mssecsvc2.0

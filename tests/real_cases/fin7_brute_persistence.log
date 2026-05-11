@@ -1,0 +1,211 @@
+# =============================================================================
+# FIN7 (Carbanak Group) — Brute Force + Persistence en entorno bancario
+# Fuente: MITRE ATT&CK G0046, US-CERT Alert AA20-049A
+# Duración del ataque: 30 minutos (14:00 – 14:30 UTC)
+# Nota: En el ataque real se documentaron 1.400+ intentos; aquí se muestran
+#       los representativos del patrón de password spray + persistencia.
+# Host objetivo: WKSTN-BANK-01 / Red: 172.16.10.0/24
+# =============================================================================
+
+EventID=4625
+Date/Time=2025-04-10T14:00:03Z
+Account Name=administrator
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:09Z
+Account Name=administrator
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:15Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:21Z
+Account Name=mgarcia
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:27Z
+Account Name=rlopez
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:33Z
+Account Name=cferrer
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:39Z
+Account Name=aortega
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:00:45Z
+Account Name=lruiz
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:00Z
+Account Name=administrator
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:06Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:12Z
+Account Name=mgarcia
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:18Z
+Account Name=rlopez
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:24Z
+Account Name=cferrer
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:30Z
+Account Name=aortega
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:01:36Z
+Account Name=lruiz
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:02:00Z
+Account Name=administrator
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:02:06Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:02:12Z
+Account Name=mgarcia
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:02:18Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4625
+Date/Time=2025-04-10T14:02:24Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=3
+Failure Reason=Unknown user name or bad password
+
+EventID=4624
+Date/Time=2025-04-10T14:23:07Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Logon Type=10
+Workstation Name=WKSTN-BANK-01
+
+EventID=4672
+Date/Time=2025-04-10T14:23:41Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Workstation Name=WKSTN-BANK-01
+
+EventID=7045
+Date/Time=2025-04-10T14:25:03Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Service Name=WinUpdateSvc
+
+EventID=4688
+Date/Time=2025-04-10T14:25:44Z
+Account Name=jsmith
+Account Domain=BANKCO
+New Process ID=0x2c4a
+New Process Name=C:\Windows\System32\schtasks.exe /Create /SC DAILY /TN "\Microsoft\Windows\Maintenance\WinHealthCheck" /TR "powershell.exe -nop -w hidden -enc JABzACAAPQAgAE4AZQB3AC0ATwBiAGoAZQBjAHQA" /ST 02:00
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4698
+Date/Time=2025-04-10T14:26:19Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55
+Task Name=\Microsoft\Windows\Maintenance\WinHealthCheck
+
+EventID=4732
+Date/Time=2025-04-10T14:28:55Z
+Account Name=jsmith
+Account Domain=BANKCO
+Source Network Address=185.220.101.55

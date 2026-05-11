@@ -79,7 +79,8 @@ def _is_suspicious(event_id: str, fields: dict, process_name: str) -> tuple[bool
     extra_techniques: list[str] = []
 
     proc = process_name.lower()
-    proc_base = proc.split("\\")[-1].replace(".exe", "")
+    exe_path = proc.split()[0] if proc.strip() else proc
+    proc_base = exe_path.split("\\")[-1].replace(".exe", "")
     if proc_base in SUSPICIOUS_PROCESSES:
         suspicious = True
 

