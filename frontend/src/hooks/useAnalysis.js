@@ -9,6 +9,7 @@ export function useAnalysis() {
   const [graph, setGraph]           = useState(null)
   const [timeline, setTimeline]     = useState(null)
   const [risk, setRisk]             = useState(null)
+  const [narrative, setNarrative]   = useState(null)
   const [loading, setLoading]       = useState(false)
   const [error, setError]           = useState(null)
 
@@ -24,14 +25,16 @@ export function useAnalysis() {
       setSessionId(sid)
       setStats(ingestRes.data)
 
-      const [graphRes, timelineRes, riskRes] = await Promise.all([
+      const [graphRes, timelineRes, riskRes, narrativeRes] = await Promise.all([
         axios.get(`${API}/api/graph/${sid}`),
         axios.get(`${API}/api/timeline/${sid}`),
         axios.get(`${API}/api/risk/${sid}`),
+        axios.get(`${API}/api/narrative/${sid}`),
       ])
       setGraph(graphRes.data)
       setTimeline(timelineRes.data)
       setRisk(riskRes.data)
+      setNarrative(narrativeRes.data.narrative)
     } catch (err) {
       setError(err.response?.data?.detail || err.message || 'Unknown error')
     } finally {
@@ -45,8 +48,9 @@ export function useAnalysis() {
     setGraph(null)
     setTimeline(null)
     setRisk(null)
+    setNarrative(null)
     setError(null)
   }, [])
 
-  return { sessionId, stats, graph, timeline, risk, loading, error, analyze, reset }
+  return { sessionId, stats, graph, timeline, risk, narrative, loading, error, analyze, reset }
 }

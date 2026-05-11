@@ -49,7 +49,7 @@ def _detect_brute_force(events: list[LogEvent]) -> list[DetectedPattern]:
     failed_by_ip: dict[str, list[LogEvent]] = defaultdict(list)
 
     for e in events:
-        if e.event_id in ("4625", "") and e.src_ip and "T1110" in e.mitre_techniques:
+        if e.src_ip and "T1110" in e.mitre_techniques:
             failed_by_ip[e.src_ip].append(e)
         elif e.source == "auth" and "SSH Failed" in e.description and e.src_ip:
             failed_by_ip[e.src_ip].append(e)

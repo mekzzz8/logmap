@@ -6,6 +6,7 @@ import NodeInspector from './components/NodeInspector/NodeInspector'
 import RiskPanel from './components/RiskPanel/RiskPanel'
 import RecommendationCard from './components/RecommendationCard/RecommendationCard'
 import EventsLog from './components/EventsLog/EventsLog'
+import NarrativeReport from './components/NarrativeReport/NarrativeReport'
 import { useAnalysis } from './hooks/useAnalysis'
 
 const RISK_COLOR = { LOW: '#22c55e', MEDIUM: '#eab308', HIGH: '#f97316', CRITICAL: '#ef4444' }
@@ -79,7 +80,7 @@ function TabBar({ tabs, active, onChange }) {
 }
 
 export default function App() {
-  const { stats, graph, timeline, risk, loading, error, analyze, reset } = useAnalysis()
+  const { stats, graph, timeline, risk, narrative, loading, error, analyze, reset } = useAnalysis()
   const [selectedNode, setSelectedNode] = useState(null)
   const [leftTab,  setLeftTab]  = useState('summary')
   const [rightTab, setRightTab] = useState('inspector')
@@ -137,9 +138,10 @@ export default function App() {
             <>
               <TabBar
                 tabs={[
-                  { id: 'summary', label: '📊 Summary' },
-                  { id: 'events',  label: `📋 Events (${stats.total_events})` },
-                  { id: 'recs',    label: '🛡 Actions' },
+                  { id: 'summary',   label: '📊 Summary' },
+                  { id: 'events',    label: `📋 Events (${stats.total_events})` },
+                  { id: 'recs',      label: '🛡 Actions' },
+                  { id: 'report',    label: '📄 Report' },
                 ]}
                 active={leftTab}
                 onChange={setLeftTab}
@@ -185,6 +187,12 @@ export default function App() {
                       Recommended Actions
                     </div>
                     <RecommendationCard risk={risk} />
+                  </div>
+                )}
+
+                {leftTab === 'report' && (
+                  <div style={{ flex: 1, overflowY: 'auto' }}>
+                    <NarrativeReport narrative={narrative} />
                   </div>
                 )}
               </div>

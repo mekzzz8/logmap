@@ -115,6 +115,95 @@ def test_fallback_unknown():
     assert isinstance(events, list)
 
 
+# ─── Wazuh tests ──────────────────────────────────────────────────────────────
+
+WAZUH_JSON_LINES = """\
+{"timestamp":"2024-01-12T08:34:01.123Z","rule":{"id":"5710","level":10,"description":"SSH brute force attack"},"agent":{"id":"001","name":"server-prod"},"data":{"srcip":"192.168.1.45","dstuser":"root"},"full_log":"Jan 12 sshd[1234]: Failed password for root from 192.168.1.45"}
+{"timestamp":"2024-01-12T08:34:05.000Z","rule":{"id":"5401","level":8,"description":"sudo: authentication failure"},"agent":{"id":"001","name":"server-prod"},"data":{"srcip":"10.0.0.5","dstuser":"jsmith"},"full_log":"Jan 12 sudo: jsmith failed"}
+{"timestamp":"2024-01-12T08:35:00.000Z","rule":{"id":"9999","level":3,"description":"Informational event"},"agent":{"id":"002","name":"server-dev"},"data":{},"full_log":"Jan 12 app: startup"}
+"""
+
+WAZUH_JSON_ARRAY = """[
+  {"timestamp":"2024-01-12T08:34:01.123Z","rule":{"id":"5710","level":14,"description":"SSH brute force critical"},"agent":{"id":"001","name":"web-01"},"data":{"srcip":"203.0.113.1","dstuser":"admin"},"full_log":"brute force"},
+  {"timestamp":"2024-01-12T08:34:02.000Z","rule":{"id":"60122","level":12,"description":"Pass-the-hash detected"},"agent":{"id":"002","name":"web-02"},"data":{"srcip":"10.0.1.5"},"full_log":"pth event"}
+]"""
+
+
+def test_wazuh_detect_jsonlines():
+    fmt = detect_format(WAZUH_JSON_LINES)
+    assert fmt == "wazuh"
+
+
+def test_wazuh_detect_jsonarray():
+    fmt = detect_format(WAZUH_JSON_ARRAY)
+    assert fmt == "wazuh"
+
+
+def test_wazuh_parse_jsonlines():
+    fmt, events = parse_logs(WAZUH_JSON_LINES)
+    assert fmt == "wazuh"
+    assert len(events) == 3
+
+
+def test_wazuh_parse_jsonarray():
+    fmt, events = parse_logs(WAZUH_JSON_ARRAY)
+    assert fmt == "wazuh"
+    assert len(events) == 2
+
+
+def test_wazuh_severity_mapping():
+    _, events = parse_logs(WAZUH_JSON_LINES)
+    # rule level 10 → MEDIUM
+    brute = next(e for e in events if e.event_id == "5710")
+    assert brute.severity.value == "MEDIUM"
+    # rule level 3 → LOW
+    info = next(e for e in events if e.event_id == "9999")
+    assert info.severity.value == "LOW"
+
+
+def test_wazuh_critical_severity():
+    _, events = parse_logs(WAZUH_JSON_ARRAY)
+    critical = next(e for e in events if e.event_id == "5710")
+    assert critical.severity.value == "CRITICAL"
+
+
+def test_wazuh_brute_force_mitre():
+    _, events = parse_logs(WAZUH_JSON_LINES)
+    brute = next(e for e in events if e.event_id == "5710")
+    assert "T1110" in brute.mitre_techniques
+    assert brute.is_suspicious
+
+
+def test_wazuh_sudo_mitre():
+    _, events = parse_logs(WAZUH_JSON_LINES)
+    sudo_ev = next(e for e in events if e.event_id == "5401")
+    assert "T1548.003" in sudo_ev.mitre_techniques
+
+
+def test_wazuh_pass_the_hash_mitre():
+    _, events = parse_logs(WAZUH_JSON_ARRAY)
+    pth = next(e for e in events if e.event_id == "60122")
+    assert "T1550.002" in pth.mitre_techniques
+    assert pth.is_suspicious
+
+
+def test_wazuh_src_ip_extracted():
+    _, events = parse_logs(WAZUH_JSON_LINES)
+    brute = next(e for e in events if e.event_id == "5710")
+    assert brute.src_ip == "192.168.1.45"
+
+
+def test_wazuh_agent_name_as_source():
+    _, events = parse_logs(WAZUH_JSON_LINES)
+    assert events[0].source == "server-prod"
+
+
+def test_wazuh_low_level_not_suspicious():
+    _, events = parse_logs(WAZUH_JSON_LINES)
+    info = next(e for e in events if e.event_id == "9999")
+    assert not info.is_suspicious
+
+
 if __name__ == "__main__":
     tests = [v for k, v in globals().items() if k.startswith("test_")]
     passed = failed = 0

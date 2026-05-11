@@ -10,6 +10,7 @@ from .parsers import parse_logs
 from .engine import build_graph
 from .engine.pattern_detector import detect_patterns
 from .engine.risk_scorer import calculate_risk
+from .engine.narrative_generator import generate_narrative
 
 app = FastAPI(title="LogMap API", version="1.0.0")
 
@@ -120,6 +121,18 @@ def get_risk(session_id: str) -> dict:
     result = report.to_dict()
     result["patterns"] = [p.to_dict() for p in patterns]
     return result
+
+
+@app.get("/api/narrative/{session_id}")
+def get_narrative(session_id: str) -> dict:
+    session = _get_session(session_id)
+    text = generate_narrative(
+        session["events"],
+        session["patterns"],
+        session["report"],
+        session["graph"],
+    )
+    return {"narrative": text}
 
 
 def _get_session(session_id: str) -> dict:

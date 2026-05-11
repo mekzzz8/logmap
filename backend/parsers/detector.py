@@ -3,8 +3,13 @@ from .base_model import LogEvent
 from .windows_parser import parse_windows
 from .syslog_parser import parse_syslog
 from .auth_log_parser import parse_auth
+from .wazuh_parser import parse_wazuh
 
 _SIGNATURES: dict[str, list[str]] = {
+    "wazuh": [
+        '"rule"', '"agent"', '"full_log"', '"manager"',
+        '"ossec"', '"decoder"', '"predecoder"',
+    ],
     "windows": [
         "EventID", "Account Name", "Account Domain", "Logon Type",
         "New Process Name", "Workstation Name", "Security ID",
@@ -45,6 +50,7 @@ def parse_logs(text: str) -> tuple[str, list[LogEvent]]:
     fmt = detect_format(text)
 
     parsers = {
+        "wazuh":   parse_wazuh,
         "windows": parse_windows,
         "syslog":  parse_syslog,
         "auth":    parse_auth,
